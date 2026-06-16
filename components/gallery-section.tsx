@@ -53,7 +53,7 @@ export function GallerySection() {
           <p className="text-sm tracking-[0.3em] text-white/60 mb-4 uppercase">
             Behind the Music
           </p>
-          <h2 className="text-4xl md:text-5xl font-light tracking-tight">
+          <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight">
             Photo <span className="font-serif italic">Gallery</span>
           </h2>
         </motion.div>

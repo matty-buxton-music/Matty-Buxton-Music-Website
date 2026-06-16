@@ -3,16 +3,19 @@
 import { useEffect, useState } from "react"
 type VideoPosterProps = {
   src: string
-  fallback: string
+  fallback?: string
   alt: string
   className?: string
   captureTime?: number
 }
 
-/** Renders a poster image captured from the video file, with a photo fallback. */
+const posterPlaceholder =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9'%3E%3Crect width='16' height='9' fill='%2313161a'/%3E%3C/svg%3E"
+
+/** Renders a poster image captured from the video file. */
 export function VideoPoster({
   src,
-  fallback,
+  fallback = posterPlaceholder,
   alt,
   className,
   captureTime = 1.5,

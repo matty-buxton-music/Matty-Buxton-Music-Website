@@ -64,7 +64,7 @@ export function ContactSection() {
             <p className="text-sm tracking-[0.3em] text-muted-foreground mb-4 uppercase">
               Get in Touch
             </p>
-            <h2 className="text-4xl md:text-5xl font-light tracking-tight text-foreground mb-6">
+            <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
               Book Your <span className="font-serif italic">Experience</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8 max-w-md">

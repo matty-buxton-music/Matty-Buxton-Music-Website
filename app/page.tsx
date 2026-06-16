@@ -1,9 +1,9 @@
 import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
+import { ShowsSection } from "@/components/shows-section"
 import { VideoSection } from "@/components/video-section"
 import { ServicesSection } from "@/components/services-section"
 import { MusicSection } from "@/components/music-section"
-import { ShowsSection } from "@/components/shows-section"
 import { GallerySection } from "@/components/gallery-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { AboutSection } from "@/components/about-section"
@@ -15,10 +15,10 @@ export default function Home() {
     <main className="min-h-screen">
       <Navigation />
       <HeroSection />
+      <ShowsSection />
       <VideoSection />
       <ServicesSection />
       <MusicSection />
-      <ShowsSection />
       <AboutSection />
       <GallerySection />
       <TestimonialsSection />
