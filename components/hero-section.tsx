@@ -43,11 +43,11 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-          className="w-full max-w-3xl mx-auto flex flex-col items-center gap-5 md:gap-6 pointer-events-auto"
+          className="w-full max-w-5xl mx-auto flex flex-col items-center gap-5 md:gap-6 pointer-events-auto"
         >
-          <div className="space-y-2 text-white">
-            <p className="hero-tagline font-hero-tagline text-[clamp(2.75rem,7.5vw,5.5rem)] font-normal leading-[1.05] tracking-[0.06em] drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)]">
-              The sunshine funkadelic
+          <div className="space-y-2 text-white w-full">
+            <p className="hero-tagline font-hero-secondary text-[clamp(1.05rem,4.1vw,3.35rem)] font-medium italic leading-none tracking-[0.1em] whitespace-nowrap">
+              The Sunshine Funkadelic
             </p>
             <p className="font-sans text-[0.65rem] md:text-xs font-medium uppercase tracking-[0.24em] text-white/80">
               Live · Original Music · The Buxtones

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Outfit, Playfair_Display, Cormorant_Garamond, Allura } from 'next/font/google'
+import { Outfit, Playfair_Display, Cormorant_Garamond } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -21,13 +21,6 @@ const cormorant = Cormorant_Garamond({
   variable: '--font-cormorant',
   weight: ['500', '600', '700'],
   style: ['normal', 'italic'],
-  display: 'swap',
-})
-
-const allura = Allura({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-allura',
   display: 'swap',
 })
 
@@ -62,7 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-background">
-        <body className={`${outfit.variable} ${playfair.variable} ${cormorant.variable} ${allura.variable} font-sans antialiased`}>
+        <body className={`${outfit.variable} ${playfair.variable} ${cormorant.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

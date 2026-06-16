@@ -71,7 +71,6 @@
   --font-display: var(--font-playfair), 'Playfair Display', Georgia, serif;
   --font-hero: var(--font-playfair), 'Playfair Display', Georgia, serif;
   --font-hero-secondary: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
-  --font-hero-tagline: var(--font-allura), 'Allura', cursive;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -165,6 +164,9 @@ html {
 
 .hero-tagline {
   font-style: italic;
-  transform: skewX(-3deg) rotate(-1.5deg);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+  color: rgba(255, 250, 242, 0.95);
+  letter-spacing: 0.1em;
+  text-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.6),
+    0 0 48px rgba(160, 110, 45, 0.18);
 }
