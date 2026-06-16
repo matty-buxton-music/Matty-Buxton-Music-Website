@@ -1,0 +1,43 @@
+---
+description: On push requests, branch → commit → push → merge to main
+alwaysApply: true
+---
+
+# Git push workflow
+
+When the user asks to push changes to GitHub (e.g. "push this out", "push to github"):
+
+1. **Start from latest `main`**
+   - `git checkout main`
+   - `git pull origin main`
+
+2. **Create a new branch** for this push (never commit directly on `main` first)
+   - Name: `cursor/<short-slug>` describing the change (e.g. `cursor/hero-tagline-font`)
+   - If that name exists, append `-2`, `-3`, etc.
+
+3. **Commit** only relevant files (exclude unrelated changes)
+
+4. **Push the branch**
+   - `git push -u origin <branch>`
+
+5. **Merge into `main` immediately**
+   - `git checkout main`
+   - `git pull origin main`
+   - `git merge <branch>`
+   - `git push origin main`
+
+6. **Do not open a PR** unless the user explicitly asks — merging to `main` is automatic.
+
+7. If Auto-review blocks a push to `main`, retry with user approval; do not skip the merge step.
+
+**Example**
+
+```bash
+git checkout main && git pull origin main
+git checkout -b cursor/hero-tagline-font
+git add <files> && git commit -m "Use Allura script font for hero tagline."
+git push -u origin cursor/hero-tagline-font
+git checkout main && git pull origin main
+git merge cursor/hero-tagline-font
+git push origin main
+```

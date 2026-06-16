@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react"
+import { reveal } from "@/lib/motion"
 
 const testimonials = [
   {
@@ -52,9 +53,7 @@ export function TestimonialsSection() {
     <section className="py-24 md:py-32 bg-secondary">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          {...reveal}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >

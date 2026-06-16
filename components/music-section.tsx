@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { ExternalLink } from "lucide-react"
+import { reveal, revealXIn } from "@/lib/motion"
 
 const platforms = [
   { name: "Spotify", href: "https://open.spotify.com/artist/5dHt1vcft5GhQ1V6yg14V9", color: "#1DB954" },
@@ -41,9 +42,7 @@ export function MusicSection() {
           {/* Left Column - Info & Releases */}
           <div>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              {...reveal}
               transition={{ duration: 0.6 }}
             >
               <p className="text-sm tracking-[0.3em] text-muted-foreground mb-4 uppercase">
@@ -75,9 +74,7 @@ export function MusicSection() {
 
             {/* Latest Releases */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              {...reveal}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h3 className="text-sm tracking-[0.2em] text-muted-foreground uppercase mb-6">
@@ -87,9 +84,7 @@ export function MusicSection() {
                 {releases.map((release, index) => (
                   <motion.div
                     key={release.title}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
+                    {...revealXIn}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     className="flex items-center gap-4 p-3 rounded-lg bg-background hover:shadow-md transition-shadow cursor-pointer group"
                   >
@@ -115,9 +110,7 @@ export function MusicSection() {
 
           {/* Right Column - Spotify Embed */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            {...reveal}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="lg:sticky lg:top-32"
           >

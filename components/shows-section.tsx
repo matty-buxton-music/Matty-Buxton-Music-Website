@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { MapPin, Calendar, Clock, ExternalLink } from "lucide-react"
 import { upcomingShows } from "@/lib/shows"
+import { reveal } from "@/lib/motion"
 
 function formatDate(dateString: string) {
   const date = new Date(`${dateString}T12:00:00`)
@@ -18,9 +19,7 @@ export function ShowsSection() {
     <section id="shows" className="py-24 md:py-32 bg-background border-b border-border">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          {...reveal}
           transition={{ duration: 0.6 }}
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16"
         >
@@ -48,9 +47,7 @@ export function ShowsSection() {
             return (
               <motion.div
                 key={show.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                {...reveal}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 className="group"
               >

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { Mic2, Users, Heart } from "lucide-react"
+import { reveal, revealUpLarge } from "@/lib/motion"
 
 const services = [
   {
@@ -39,9 +40,7 @@ export function ServicesSection() {
     <section id="services" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          {...reveal}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -57,9 +56,7 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <motion.div
               key={service.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              {...revealUpLarge}
               transition={{ duration: 0.5, delay: index * 0.15 }}
               className="group"
             >

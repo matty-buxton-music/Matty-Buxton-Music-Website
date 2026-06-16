@@ -5,6 +5,7 @@ import { Play } from "lucide-react"
 import { useRef, useState } from "react"
 import { featuredVideo, performanceVideos, type PerformanceVideo } from "@/lib/videos"
 import { VideoPoster } from "@/components/video-poster"
+import { reveal } from "@/lib/motion"
 
 export function VideoSection() {
   const [activeVideo, setActiveVideo] = useState<PerformanceVideo | null>(null)
@@ -21,9 +22,7 @@ export function VideoSection() {
     <section id="video" className="py-24 md:py-32 bg-charcoal text-white">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          {...reveal}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -36,9 +35,7 @@ export function VideoSection() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          {...reveal}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="relative aspect-video max-w-5xl mx-auto mb-10 overflow-hidden bg-black"
         >
@@ -58,6 +55,7 @@ export function VideoSection() {
             <>
               <VideoPoster
                 src={featuredVideo.src}
+                fallback={featuredVideo.poster}
                 alt={featuredVideo.title}
                 className="object-cover transition-transform duration-700"
                 captureTime={2}
@@ -86,9 +84,7 @@ export function VideoSection() {
             <motion.button
               key={video.id}
               type="button"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              {...reveal}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               onClick={() => playVideo(video)}
               className={`relative aspect-video overflow-hidden group text-left ring-2 transition-all ${
@@ -99,6 +95,7 @@ export function VideoSection() {
             >
               <VideoPoster
                 src={video.src}
+                fallback={video.poster}
                 alt={video.title}
                 className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                 captureTime={index === 0 ? 2 : 4}

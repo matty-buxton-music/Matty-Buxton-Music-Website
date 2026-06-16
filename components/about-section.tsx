@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { revealXLeft, revealXRight } from "@/lib/motion"
 
 export function AboutSection() {
   return (
@@ -9,9 +10,7 @@ export function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            {...revealXLeft}
             transition={{ duration: 0.8 }}
             className="relative"
           >
@@ -29,9 +28,7 @@ export function AboutSection() {
 
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            {...revealXRight}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <p className="text-sm tracking-[0.3em] text-muted-foreground mb-4 uppercase">

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { X } from "lucide-react"
+import { reveal } from "@/lib/motion"
 
 const images = [
   {
@@ -44,9 +45,7 @@ export function GallerySection() {
     <section id="gallery" className="py-24 md:py-32 bg-charcoal text-white">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          {...reveal}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -63,9 +62,7 @@ export function GallerySection() {
           {images.map((image, index) => (
             <motion.button
               key={image.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              {...reveal}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               onClick={() => setSelectedImage(image)}
               className="relative block w-full rounded-lg overflow-hidden group break-inside-avoid"

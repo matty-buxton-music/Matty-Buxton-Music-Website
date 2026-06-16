@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { Send, CheckCircle } from "lucide-react"
+import { reveal } from "@/lib/motion"
 
 const eventTypes = [
   "Wedding",
@@ -56,9 +57,7 @@ export function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Left - Info */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            {...reveal}
             transition={{ duration: 0.6 }}
           >
             <p className="text-sm tracking-[0.3em] text-muted-foreground mb-4 uppercase">
@@ -100,9 +99,7 @@ export function ContactSection() {
 
           {/* Right - Form */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            {...reveal}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="bg-secondary rounded-2xl p-8 md:p-10">
