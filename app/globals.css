@@ -71,6 +71,7 @@
   --font-display: var(--font-playfair), 'Playfair Display', Georgia, serif;
   --font-hero: var(--font-playfair), 'Playfair Display', Georgia, serif;
   --font-hero-secondary: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  --font-hero-tagline: var(--font-allura), 'Allura', cursive;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -160,4 +161,10 @@ html {
 
 .hero-warm-tone {
   filter: sepia(0.18) saturate(1.12) hue-rotate(-12deg) brightness(1.04);
+}
+
+.hero-tagline {
+  font-style: italic;
+  transform: skewX(-3deg) rotate(-1.5deg);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
 }

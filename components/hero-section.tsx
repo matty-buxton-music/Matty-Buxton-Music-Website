@@ -46,7 +46,7 @@ export function HeroSection() {
           className="w-full max-w-3xl mx-auto flex flex-col items-center gap-5 md:gap-6 pointer-events-auto"
         >
           <div className="space-y-2 text-white">
-            <p className="font-hero-secondary text-3xl md:text-5xl lg:text-6xl font-medium italic tracking-[0.04em] leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">
+            <p className="hero-tagline font-hero-tagline text-[clamp(2.75rem,7.5vw,5.5rem)] font-normal leading-[1.05] tracking-[0.06em] drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)]">
               The sunshine funkadelic
             </p>
             <p className="font-sans text-[0.65rem] md:text-xs font-medium uppercase tracking-[0.24em] text-white/80">
