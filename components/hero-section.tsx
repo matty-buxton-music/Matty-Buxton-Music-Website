@@ -1,92 +1,81 @@
 "use client"
 
-import { motion } from "framer-motion"
+import Image from "next/image"
 import Link from "next/link"
-import { Play, ChevronDown } from "lucide-react"
+import { motion } from "framer-motion"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-          style={{
-            backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Matty_Buxton_LLB-126-o0wQI1iu0oo4LZr4l3koMitrC6I0Ef.jpg')`,
-          }}
-        />
-        {/* Warm plum + charcoal — club-night depth without retro kitsch */}
-        <div className="absolute inset-0 bg-funk-plum/55 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/50 via-charcoal/25 to-background/95" />
-        <div className="absolute inset-0 hero-groove-glow" />
-        <div className="absolute inset-0 hero-grain" aria-hidden />
+    <section className="relative min-h-screen overflow-hidden">
+      <div className="absolute inset-0 hero-warm-tone overflow-hidden">
+        <div className="absolute -top-[calc(18%+8cm)] left-0 right-0 h-[calc(135%+8cm)]">
+          <Image
+            src="/images/hero-diving.jpg"
+            alt="Matty Buxton diving into the water"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 text-center">
+      {/* Vignette top + bottom only — keep the diver clear in the middle */}
+      <div className="absolute inset-0 bg-amber-950/10 mix-blend-soft-light pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 from-0% via-transparent via-14% to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 from-0% via-black/20 via-16% to-transparent pointer-events-none" />
+
+      <div className="relative z-10 flex min-h-screen flex-col justify-between px-6 pt-[4.5rem] md:pt-24 pb-8 md:pb-10 text-center text-white pointer-events-none">
+        {/* Name — top strip only, over water surface */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl mx-auto"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full max-w-5xl mx-auto pointer-events-auto shrink-0"
         >
-          <p className="font-sans text-[0.65rem] md:text-xs tracking-[0.4em] text-funk-gold/90 mb-8 uppercase font-medium">
-            Mount Maunganui, New Zealand
-          </p>
-
-          <h1 className="font-display text-5xl md:text-7xl lg:text-[5.25rem] font-semibold text-white mb-5 tracking-tight leading-[1.05]">
-            <span className="block">Matty</span>
-            <span className="block italic text-funk-gold font-medium">Buxton</span>
+          <h1 className="font-hero text-[clamp(2rem,7.5vw,5.25rem)] font-black uppercase leading-[0.9] tracking-[0.02em] text-white whitespace-nowrap drop-shadow-[0_2px_16px_rgba(0,0,0,0.4)]">
+            Matty Buxton
           </h1>
+        </motion.div>
 
-          <div
-            className="mx-auto mb-6 h-px w-16 bg-gradient-to-r from-transparent via-funk-gold/80 to-transparent"
-            aria-hidden
-          />
+        {/* Taglines + actions — bottom band over dark water */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+          className="w-full max-w-3xl mx-auto flex flex-col items-center gap-5 md:gap-6 pointer-events-auto"
+        >
+          <div className="space-y-2 text-white">
+            <p className="font-hero-secondary text-3xl md:text-5xl lg:text-6xl font-medium italic tracking-[0.04em] leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">
+              The sunshine funkadelic
+            </p>
+            <p className="font-sans text-[0.65rem] md:text-xs font-medium uppercase tracking-[0.24em] text-white/80">
+              Live · Original Music · The Buxtones
+            </p>
+          </div>
 
-          <p className="font-sans text-sm md:text-base tracking-[0.28em] text-white/85 mb-5 uppercase font-medium">
-            Funk <span className="text-funk-gold/70">•</span> Disco <span className="text-funk-gold/70">•</span> Soul
-          </p>
-
-          <p className="font-sans text-base md:text-lg text-white/75 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-            Original music, unforgettable live performances, and premium entertainment for events across New Zealand.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 md:gap-3">
+            <Link
+              href="#shows"
+              className="px-4 py-1.5 bg-white/95 text-charcoal font-sans text-[0.65rem] font-medium tracking-[0.2em] uppercase hover:bg-white transition-colors duration-300"
+            >
+              Shows
+            </Link>
             <Link
               href="#video"
-              className="group flex items-center gap-3 px-8 py-4 bg-funk-gold text-charcoal rounded-full font-medium tracking-wide text-sm hover:bg-funk-amber transition-all duration-300 shadow-[0_4px_24px_-4px_color-mix(in_oklch,var(--funk-gold)_45%,transparent)]"
+              className="px-4 py-1.5 border border-white/50 text-white font-sans text-[0.65rem] font-medium tracking-[0.2em] uppercase backdrop-blur-[2px] hover:border-white hover:bg-white/10 transition-all duration-300"
             >
-              <Play className="w-5 h-5 fill-current" />
-              Watch Showreel
+              Watch
             </Link>
             <Link
               href="#contact"
-              className="px-8 py-4 border border-funk-gold/35 text-white rounded-full font-medium tracking-wide text-sm hover:border-funk-gold/60 hover:bg-funk-gold/10 transition-all duration-300"
+              className="px-4 py-1.5 border border-white/50 text-white font-sans text-[0.65rem] font-medium tracking-[0.2em] uppercase backdrop-blur-[2px] hover:border-white hover:bg-white/10 transition-all duration-300"
             >
               Book a Show
             </Link>
           </div>
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <Link
-          href="#video"
-          className="flex flex-col items-center gap-2 text-funk-gold/50 hover:text-funk-gold/80 transition-colors font-sans"
-        >
-          <span className="text-[0.65rem] tracking-[0.35em] uppercase">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            <ChevronDown className="w-5 h-5" />
-          </motion.div>
-        </Link>
-      </motion.div>
     </section>
   )
 }

@@ -1,18 +1,25 @@
 import type { Metadata, Viewport } from 'next'
-import { Outfit, Fraunces } from 'next/font/google'
+import { Outfit, Playfair_Display, Cormorant_Garamond } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const outfit = Outfit({ 
-  subsets: ["latin"],
+const outfit = Outfit({
+  subsets: ['latin'],
   variable: '--font-outfit',
   display: 'swap',
 })
 
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: '--font-fraunces',
-  weight: ['400', '500', '600', '700'],
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  weight: ['700', '800', '900'],
+  display: 'swap',
+})
+
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  variable: '--font-cormorant',
+  weight: ['500', '600', '700'],
   style: ['normal', 'italic'],
   display: 'swap',
 })
@@ -48,7 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-background">
-        <body className={`${outfit.variable} ${fraunces.variable} font-sans antialiased`}>
+        <body className={`${outfit.variable} ${playfair.variable} ${cormorant.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

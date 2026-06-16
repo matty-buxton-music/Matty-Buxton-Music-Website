@@ -25,7 +25,7 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-block text-2xl tracking-wide font-semibold mb-4">
+            <Link href="/" className="font-hero inline-block text-2xl tracking-wide font-bold uppercase mb-4">
               MATTY BUXTON
             </Link>
             <p className="text-white/60 leading-relaxed max-w-md mb-6">

@@ -48,7 +48,7 @@ export function ServicesSection() {
           <p className="text-sm tracking-[0.3em] text-muted-foreground mb-4 uppercase">
             Live Entertainment
           </p>
-          <h2 className="text-4xl md:text-5xl font-light tracking-tight text-foreground">
+          <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-foreground">
             Three Ways to <span className="font-serif italic">Experience</span>
           </h2>
         </motion.div>

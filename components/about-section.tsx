@@ -37,7 +37,7 @@ export function AboutSection() {
             <p className="text-sm tracking-[0.3em] text-muted-foreground mb-4 uppercase">
               The Artist
             </p>
-            <h2 className="text-4xl md:text-5xl font-light tracking-tight text-foreground mb-6">
+            <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
               Soulful Sounds from the <span className="font-serif italic">Coast</span>
             </h2>
             

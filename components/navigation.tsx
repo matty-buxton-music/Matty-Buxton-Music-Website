@@ -42,19 +42,19 @@ export function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled 
-            ? "bg-background/95 backdrop-blur-md border-b border-border" 
+          scrolled
+            ? "bg-background/95 backdrop-blur-md border-b border-border"
             : "bg-transparent"
         }`}
       >
         <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link 
-            href="/" 
-            className={`text-xl tracking-tight font-display font-semibold transition-colors duration-300 ${
+          <Link
+            href="/"
+            className={`font-hero text-sm md:text-base font-bold uppercase tracking-[0.12em] transition-colors duration-300 ${
               onHero ? "text-white" : "text-foreground"
             }`}
           >
-            Matty <span className={onHero ? "italic text-funk-gold" : "italic text-funk-gold/90"}>Buxton</span>
+            Matty Buxton
           </Link>
 
           {/* Desktop Navigation */}
@@ -63,9 +63,9 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm tracking-wide font-sans transition-colors duration-200 ${
+                className={`text-sm tracking-[0.12em] uppercase font-medium transition-colors duration-200 ${
                   onHero
-                    ? "text-white/70 hover:text-funk-gold"
+                    ? "text-white/75 hover:text-white"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -83,7 +83,7 @@ export function Navigation() {
                 rel="noopener noreferrer"
                 className={`transition-colors duration-200 ${
                   onHero
-                    ? "text-white/60 hover:text-funk-gold"
+                    ? "text-white/70 hover:text-white"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
                 aria-label={social.label}
@@ -93,9 +93,9 @@ export function Navigation() {
             ))}
             <Link
               href="#contact"
-              className={`ml-4 px-5 py-2 text-sm tracking-wide font-medium rounded-full transition-colors duration-200 ${
+              className={`ml-4 px-5 py-2 text-sm tracking-[0.12em] uppercase font-semibold transition-colors duration-200 ${
                 onHero
-                  ? "bg-funk-gold text-charcoal hover:bg-funk-amber"
+                  ? "bg-white text-charcoal hover:bg-white/90"
                   : "bg-foreground text-background hover:bg-foreground/90"
               }`}
             >
