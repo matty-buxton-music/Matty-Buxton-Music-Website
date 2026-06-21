@@ -1,8 +1,37 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
 import { motion } from "framer-motion"
+import { ListenNowButton } from "@/components/listen-now-button"
+import {
+  AppleMusicIcon,
+  FacebookIcon,
+  InstagramIcon,
+  SpotifyIcon,
+} from "@/components/brand-icons"
+
+const heroSocialLinks = [
+  {
+    href: "https://open.spotify.com/artist/6aVd2oxEWWoOPzswn8dv65?si=Ni5tGbIPTr6Ebous1TNg8A",
+    icon: SpotifyIcon,
+    label: "Spotify",
+  },
+  {
+    href: "https://music.apple.com/nz/artist/matty-buxton/1557093508",
+    icon: AppleMusicIcon,
+    label: "Apple Music",
+  },
+  {
+    href: "https://www.instagram.com/the_real_matty_buxton/",
+    icon: InstagramIcon,
+    label: "Instagram",
+  },
+  {
+    href: "https://www.facebook.com/matty3uxton",
+    icon: FacebookIcon,
+    label: "Facebook",
+  },
+]
 
 export function HeroSection() {
   return (
@@ -31,11 +60,26 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="w-full max-w-5xl mx-auto pointer-events-auto shrink-0"
+          className="grid w-full max-w-5xl mx-auto grid-cols-[1fr_auto_1fr] items-start gap-2 pointer-events-auto shrink-0"
         >
+          <div aria-hidden="true" />
           <h1 className="font-hero text-[clamp(2rem,7.5vw,5.25rem)] font-black uppercase leading-[0.9] tracking-[0.02em] text-white whitespace-nowrap drop-shadow-[0_2px_16px_rgba(0,0,0,0.4)]">
             Matty Buxton
           </h1>
+          <div className="flex items-center justify-end gap-3 md:gap-4">
+            {heroSocialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/75 hover:text-white transition-colors duration-200"
+                aria-label={social.label}
+              >
+                <social.icon className="w-4 h-4 md:w-5 md:h-5" />
+              </a>
+            ))}
+          </div>
         </motion.div>
 
         {/* Taglines + actions — bottom band over dark water */}
@@ -54,26 +98,7 @@ export function HeroSection() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-2.5 md:gap-3">
-            <Link
-              href="#shows"
-              className="px-4 py-1.5 bg-white/95 text-charcoal font-sans text-[0.65rem] font-medium tracking-[0.2em] uppercase hover:bg-white transition-colors duration-300"
-            >
-              Shows
-            </Link>
-            <Link
-              href="#video"
-              className="px-4 py-1.5 border border-white/50 text-white font-sans text-[0.65rem] font-medium tracking-[0.2em] uppercase backdrop-blur-[2px] hover:border-white hover:bg-white/10 transition-all duration-300"
-            >
-              Watch
-            </Link>
-            <Link
-              href="#contact"
-              className="px-4 py-1.5 border border-white/50 text-white font-sans text-[0.65rem] font-medium tracking-[0.2em] uppercase backdrop-blur-[2px] hover:border-white hover:bg-white/10 transition-all duration-300"
-            >
-              Book a Show
-            </Link>
-          </div>
+          <ListenNowButton />
         </motion.div>
       </div>
     </section>

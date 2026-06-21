@@ -1,12 +1,13 @@
 import Link from "next/link"
 import { Music, Instagram, Facebook, Youtube, Mail } from "lucide-react"
+import { CONTACT_EMAIL } from "@/lib/contact"
 
 const socialLinks = [
   { href: "https://open.spotify.com/artist/mattybuxton", icon: Music, label: "Spotify" },
   { href: "https://instagram.com/mattybuxton", icon: Instagram, label: "Instagram" },
   { href: "https://facebook.com/mattybuxton", icon: Facebook, label: "Facebook" },
   { href: "https://youtube.com/@mattybuxton", icon: Youtube, label: "YouTube" },
-  { href: "mailto:hello@mattybuxton.com", icon: Mail, label: "Email" },
+  { href: `mailto:${CONTACT_EMAIL}`, icon: Mail, label: "Email" },
 ]
 
 const navLinks = [
@@ -69,8 +70,8 @@ export function Footer() {
             <h3 className="text-sm font-medium tracking-wider uppercase mb-4">Get in Touch</h3>
             <ul className="space-y-3 text-white/60">
               <li>
-                <a href="mailto:hello@mattybuxton.com" className="hover:text-white transition-colors">
-                  hello@mattybuxton.com
+                <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white transition-colors">
+                  {CONTACT_EMAIL}
                 </a>
               </li>
               <li>Mount Maunganui, NZ</li>

@@ -5,43 +5,28 @@ export type Show = {
   venue: string
   location: string
   ticketLink: string | null
+  entry?: string
   type: "Solo" | "Band" | "Festival"
 }
 
-/** Update dates, venues, and times when confirmed. */
 export const upcomingShows: Show[] = [
   {
-    id: "1",
-    date: "2026-06-14",
-    venue: "Rubys",
+    id: "rubys-july",
+    date: "2026-07-12",
+    time: "3pm – 6pm",
+    venue: "Ruby's",
+    location: "Papamoa",
+    ticketLink: null,
+    entry: "Free entry",
+    type: "Solo",
+  },
+  {
+    id: "beach-bar-july",
+    date: "2026-07-24",
+    time: "4pm – 7pm",
+    venue: "Beach Bar",
     location: "Papamoa",
     ticketLink: null,
     type: "Solo",
-  },
-  {
-    id: "2",
-    date: "2026-06-20",
-    venue: "Rising Tide",
-    location: "Mt Maunganui",
-    ticketLink: null,
-    type: "Solo",
-  },
-  {
-    id: "3",
-    date: "2026-08-16",
-    time: "TBC",
-    venue: "Venue TBC",
-    location: "Bay of Plenty",
-    ticketLink: null,
-    type: "Band",
-  },
-  {
-    id: "4",
-    date: "2026-09-06",
-    time: "TBC",
-    venue: "Venue TBC",
-    location: "New Zealand",
-    ticketLink: null,
-    type: "Festival",
   },
 ]

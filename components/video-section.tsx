@@ -55,7 +55,6 @@ export function VideoSection() {
             <>
               <VideoPoster
                 src={featuredVideo.src}
-                fallback={featuredVideo.poster}
                 alt={featuredVideo.title}
                 className="object-cover transition-transform duration-700"
                 captureTime={2}
@@ -79,7 +78,7 @@ export function VideoSection() {
           )}
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {performanceVideos.map((video, index) => (
             <motion.button
               key={video.id}
@@ -95,10 +94,9 @@ export function VideoSection() {
             >
               <VideoPoster
                 src={video.src}
-                fallback={video.poster}
                 alt={video.title}
                 className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                captureTime={index === 0 ? 2 : 4}
+                captureTime={2 + index}
               />
               <div className="absolute inset-0 bg-black/35 group-hover:bg-black/45 transition-colors flex items-center justify-center">
                 <Play className="w-10 h-10 text-white/90 group-hover:scale-110 transition-transform" />

@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { useState } from "react"
 import { Send, CheckCircle } from "lucide-react"
 import { reveal } from "@/lib/motion"
+import { CONTACT_EMAIL } from "@/lib/contact"
 
 const eventTypes = [
   "Wedding",
@@ -28,23 +29,37 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setFormState("submitting")
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    setFormState("success")
-    
-    // Reset after showing success
-    setTimeout(() => {
-      setFormState("idle")
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        eventType: "",
-        date: "",
-        message: "",
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       })
-    }, 3000)
+
+      if (!response.ok) {
+        throw new Error("Failed to send")
+      }
+
+      setFormState("success")
+
+      setTimeout(() => {
+        setFormState("idle")
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          eventType: "",
+          date: "",
+          message: "",
+        })
+      }, 3000)
+    } catch {
+      setFormState("idle")
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Enquiry: ${formData.eventType}`)}&body=${encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || "Not provided"}\nEvent Date: ${formData.date || "Not provided"}\nEvent Type: ${formData.eventType}\n\n${formData.message}`
+      )}`
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -73,8 +88,8 @@ export function ContactSection() {
             <div className="space-y-6">
               <div>
                 <h3 className="text-sm font-medium text-foreground mb-2">Email</h3>
-                <a href="mailto:hello@mattybuxton.com" className="text-muted-foreground hover:text-accent transition-colors">
-                  hello@mattybuxton.com
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-muted-foreground hover:text-accent transition-colors">
+                  {CONTACT_EMAIL}
                 </a>
               </div>
               <div>
@@ -90,8 +105,8 @@ export function ContactSection() {
             {/* Image */}
             <div className="mt-12 aspect-video rounded-lg overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80&auto=format&fit=crop"
-                alt="Mount Maunganui coastline"
+                src="/images/totara-live.png"
+                alt="Matty & The Buxtones performing live at Totara"
                 className="w-full h-full object-cover"
               />
             </div>

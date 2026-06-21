@@ -92,6 +92,10 @@ export function ShowsSection() {
                       <span className="sm:hidden">Tickets</span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
+                  ) : show.entry ? (
+                    <span className="flex-shrink-0 px-5 py-2.5 bg-secondary font-sans text-sm text-foreground tracking-[0.06em] uppercase">
+                      {show.entry}
+                    </span>
                   ) : (
                     <span className="flex-shrink-0 px-5 py-2.5 bg-secondary font-sans text-sm text-muted-foreground tracking-[0.06em] uppercase">
                       Details soon

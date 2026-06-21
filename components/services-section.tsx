@@ -16,15 +16,6 @@ const services = [
     features: ["Original Music", "Festival Ready", "Full Production"],
   },
   {
-    id: "weddings",
-    title: "Weddings & Events",
-    subtitle: "Solo & Duo Performances",
-    description: "Create the perfect atmosphere for your special day with intimate acoustic performances. Professional, reliable, and tailored to your celebration.",
-    icon: Heart,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Matty_Buxton_LLB-065-PQ5ZUG7bvrFdj9bc8L20hMfVUs56op.jpg",
-    features: ["Ceremony Music", "Reception Entertainment", "Custom Song Requests"],
-  },
-  {
     id: "buxtones",
     title: "Matty & The Buxtones",
     subtitle: "7-Piece Live Band",
@@ -32,6 +23,15 @@ const services = [
     icon: Users,
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Matty_Buxton_LLB-107-oeu4WBgZpVNzwqcAisG5tyRWW6cGxs.jpg",
     features: ["7-Piece Band", "Covers & Originals", "Festival Energy"],
+  },
+  {
+    id: "weddings",
+    title: "Weddings & Events",
+    subtitle: "Solo & Duo Performances",
+    description: "Create the perfect atmosphere for your special day with intimate acoustic performances. Professional, reliable, and tailored to your celebration.",
+    icon: Heart,
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Matty_Buxton_LLB-065-PQ5ZUG7bvrFdj9bc8L20hMfVUs56op.jpg",
+    features: ["Ceremony Music", "Reception Entertainment", "Custom Song Requests"],
   },
 ]
 
@@ -60,7 +60,7 @@ export function ServicesSection() {
               transition={{ duration: 0.5, delay: index * 0.15 }}
               className="group"
             >
-              <div className="relative aspect-[4/5] mb-6 rounded-lg overflow-hidden">
+              <div className="relative h-44 md:h-48 mb-6 rounded-lg overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title}
