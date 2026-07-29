@@ -33,15 +33,32 @@ export function ContactSection() {
     setErrorMessage("")
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone?.trim() || "Not provided",
+          eventType: formData.eventType.trim(),
+          date: formData.date?.trim() || "Not provided",
+          message: formData.message.trim(),
+          _subject: `Website enquiry: ${formData.eventType.trim()}`,
+          _template: "table",
+          _captcha: "false",
+        }),
       })
 
       if (!response.ok) {
-        const data = await response.json().catch(() => null)
-        throw new Error(data?.error || "Failed to send enquiry.")
+        throw new Error("Failed to send enquiry.")
+      }
+
+      const data = await response.json().catch(() => null)
+      if (data && data.success === "false") {
+        throw new Error(data.message || "Failed to send enquiry.")
       }
 
       setFormState("success")
