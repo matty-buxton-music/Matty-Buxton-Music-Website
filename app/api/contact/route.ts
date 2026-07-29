@@ -50,6 +50,19 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Failed to send enquiry." }, { status: 502 })
     }
 
+    const data = await response.json().catch(() => null)
+
+    if (data && data.success === "false") {
+      console.error("FormSubmit response:", data.message)
+      if (data.message?.includes("Activation")) {
+        return NextResponse.json(
+          { error: "Form is awaiting activation. Please check your inbox and click the activation link from FormSubmit." },
+          { status: 503 }
+        )
+      }
+      return NextResponse.json({ error: "Failed to send enquiry." }, { status: 502 })
+    }
+
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error("Contact form: failed to send.", error)
