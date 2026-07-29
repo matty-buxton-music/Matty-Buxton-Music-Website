@@ -16,7 +16,8 @@ const eventTypes = [
 ]
 
 export function ContactSection() {
-  const [formState, setFormState] = useState<"idle" | "submitting" | "success">("idle")
+  const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle")
+  const [errorMessage, setErrorMessage] = useState("")
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,6 +30,7 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setFormState("submitting")
+    setErrorMessage("")
 
     try {
       const response = await fetch("/api/contact", {
@@ -38,7 +40,8 @@ export function ContactSection() {
       })
 
       if (!response.ok) {
-        throw new Error("Failed to send")
+        const data = await response.json().catch(() => null)
+        throw new Error(data?.error || "Failed to send enquiry.")
       }
 
       setFormState("success")
@@ -54,11 +57,13 @@ export function ContactSection() {
           message: "",
         })
       }, 3000)
-    } catch {
-      setFormState("idle")
-      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Enquiry: ${formData.eventType}`)}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || "Not provided"}\nEvent Date: ${formData.date || "Not provided"}\nEvent Type: ${formData.eventType}\n\n${formData.message}`
-      )}`
+    } catch (error) {
+      setFormState("error")
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again or email us directly."
+      )
     }
   }
 
@@ -229,6 +234,15 @@ export function ContactSection() {
                       placeholder="Tell me about your event..."
                     />
                   </div>
+
+                  {formState === "error" && (
+                    <p className="rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+                      {errorMessage}{" "}
+                      <a href={`mailto:${CONTACT_EMAIL}`} className="underline underline-offset-2">
+                        Email us directly
+                      </a>
+                    </p>
+                  )}
 
                   <button
                     type="submit"
