@@ -5,7 +5,7 @@ import { revealXLeft, revealXRight } from "@/lib/motion"
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 md:py-32 bg-background overflow-hidden">
+    <section id="about" className="artist-water-background py-24 md:py-32 text-white overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image */}
@@ -31,14 +31,14 @@ export function AboutSection() {
             {...revealXRight}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <p className="text-sm tracking-[0.3em] text-muted-foreground mb-4 uppercase">
+            <p className="text-sm tracking-[0.3em] text-white/65 mb-4 uppercase">
               The Artist
             </p>
-            <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
+            <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-white mb-6">
               Soulful Sounds from the <span className="font-serif italic">Coast</span>
             </h2>
             
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-white/75 leading-relaxed">
               <p>
                 Born and raised from the beachside haven of Tauranga Moana, NZ, Matty Buxton and his show-stopping band, &apos;The Buxtones&apos; first originated when charismatic frontman and songwriter Matty Buxton began study at local polytech, Toi Ohomai. Here he created strong relationships with many members of the local musical community, but none more pivotal than local reggae and gypsy jazz legend, Regan Perry.
               </p>
@@ -54,18 +54,18 @@ export function AboutSection() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 mt-10 pt-10 border-t border-border">
+            <div className="grid grid-cols-3 gap-8 mt-10 pt-10 border-t border-white/20">
               <div>
-                <p className="text-3xl md:text-4xl font-light text-foreground">200+</p>
-                <p className="text-sm text-muted-foreground mt-1">Shows Performed</p>
+                <p className="text-3xl md:text-4xl font-light text-white">200+</p>
+                <p className="text-sm text-white/65 mt-1">Shows Performed</p>
               </div>
               <div>
-                <p className="text-3xl md:text-4xl font-light text-foreground">50+</p>
-                <p className="text-sm text-muted-foreground mt-1">Weddings</p>
+                <p className="text-3xl md:text-4xl font-light text-white">50+</p>
+                <p className="text-sm text-white/65 mt-1">Weddings</p>
               </div>
               <div>
-                <p className="text-3xl md:text-4xl font-light text-foreground">10+</p>
-                <p className="text-sm text-muted-foreground mt-1">Years Performing</p>
+                <p className="text-3xl md:text-4xl font-light text-white">10+</p>
+                <p className="text-sm text-white/65 mt-1">Years Performing</p>
               </div>
             </div>
           </motion.div>

@@ -14,7 +14,7 @@ const platforms = [
 
 export function MusicSection() {
   return (
-    <section id="music" className="py-24 md:py-32 bg-secondary">
+    <section id="music" className="dark-water-background py-24 md:py-32 text-white">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - Info & Releases */}
@@ -23,13 +23,13 @@ export function MusicSection() {
               {...reveal}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-sm tracking-[0.3em] text-muted-foreground mb-4 uppercase">
+              <p className="text-sm tracking-[0.3em] text-white/65 mb-4 uppercase">
                 Listen Now
               </p>
-              <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
+              <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-white mb-6">
                 Original <span className="font-serif italic">Music</span>
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-8 max-w-md">
+              <p className="text-white/70 leading-relaxed mb-8 max-w-md">
                 Blending neo soul, alternative hip-hop, and funk with the laid-back vibes of coastal New Zealand. Every track tells a story of ocean, sunshine, and soulful expression.
               </p>
 
@@ -54,7 +54,7 @@ export function MusicSection() {
               {...reveal}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h3 className="text-sm tracking-[0.2em] text-muted-foreground uppercase mb-6">
+              <h3 className="text-sm tracking-[0.2em] text-white/65 uppercase mb-6">
                 Top Streaming Tracks
               </h3>
               <div className="space-y-4">
@@ -105,7 +105,7 @@ export function MusicSection() {
                 title="Matty Buxton on Spotify"
               />
             </div>
-            <p className="text-center text-sm text-muted-foreground mt-4">
+            <p className="text-center text-sm text-white/65 mt-4">
               Follow on Spotify for new releases
             </p>
           </motion.div>

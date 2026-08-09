@@ -170,3 +170,23 @@ html {
     0 2px 20px rgba(0, 0, 0, 0.6),
     0 0 48px rgba(160, 110, 45, 0.18);
 }
+
+.dark-water-background {
+  background-color: var(--charcoal);
+  background-image:
+    linear-gradient(rgba(12, 27, 29, 0.78), rgba(12, 27, 29, 0.9)),
+    url("/images/underwater-rose.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.artist-water-background {
+  background-color: var(--charcoal);
+  background-image:
+    linear-gradient(rgba(12, 27, 29, 0.74), rgba(12, 27, 29, 0.88)),
+    url("/images/floating-guitar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover, 100% auto;
+}

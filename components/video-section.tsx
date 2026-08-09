@@ -19,7 +19,7 @@ export function VideoSection() {
   }
 
   return (
-    <section id="video" className="py-24 md:py-32 bg-charcoal text-white">
+    <section id="video" className="dark-water-background py-24 md:py-32 text-white">
       <div className="container mx-auto px-6">
         <motion.div
           {...reveal}
