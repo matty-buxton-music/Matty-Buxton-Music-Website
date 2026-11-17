@@ -61,7 +61,7 @@ export function ShowsSection() {
 
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2 mb-1">
-                      <span className="font-sans text-xs px-2 py-0.5 uppercase tracking-wider bg-secondary text-foreground">
+                      <span className="font-sans text-xs px-2 py-0.5 tracking-wider bg-secondary text-foreground">
                         {show.type}
                       </span>
                       <span className="font-sans text-xs text-muted-foreground">{weekday}</span>
@@ -72,12 +72,16 @@ export function ShowsSection() {
                         </span>
                       )}
                     </div>
-                    <h3 className="font-display text-lg md:text-xl font-medium text-foreground truncate">
-                      {show.venue}
+                    <h3 className="font-display text-lg md:text-xl font-semibold text-foreground truncate">
+                      {show.with ?? show.venue}
                     </h3>
                     <div className="flex items-center gap-1 font-sans text-sm text-muted-foreground">
-                      <MapPin className="w-3 h-3" />
-                      {show.location}
+                      <MapPin className="w-3 h-3 flex-shrink-0" />
+                      <span>
+                        {show.with
+                          ? `${show.venue} · ${show.location}`
+                          : show.location}
+                      </span>
                     </div>
                   </div>
 

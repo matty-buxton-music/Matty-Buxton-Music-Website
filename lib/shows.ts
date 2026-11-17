@@ -4,26 +4,39 @@ export type Show = {
   time?: string
   venue: string
   location: string
+  with?: string
   ticketLink: string | null
   entry?: string
-  type: "Solo" | "Band" | "Festival"
+  type: string
 }
 
 export const upcomingShows: Show[] = [
   {
-    id: "jam-factory-august",
-    date: "2026-08-14",
-    venue: "The Jam Factory",
-    location: "Tauranga",
-    ticketLink: "https://www.theincubator.co.nz/event-details/nick-herbison-at-the-jam-factory",
-    type: "Solo",
+    id: "totara-street-december",
+    date: "2026-12-19",
+    venue: "Totara Street",
+    location: "Mount Maunganui",
+    with: "Joel Shadbolt & the Rnbeast",
+    ticketLink:
+      "https://totara.flicket.co.nz/events/1f49c98b-fc46-4599-9cc6-04ea668a4df1",
+    type: "Matty & The Buxtones",
   },
   {
-    id: "rising-tide-september",
-    date: "2026-09-12",
-    venue: "Rising Tide",
-    location: "Mount Maunganui",
+    id: "the-yard-raglan-january",
+    date: "2027-01-10",
+    venue: "The Yard",
+    location: "Raglan",
     ticketLink: null,
+    entry: "Tickets on sale soon",
+    type: "Matty Buxton & Regan Perry",
+  },
+  {
+    id: "med-lounge-january",
+    date: "2027-01-15",
+    venue: "The Med Lounge",
+    location: "Tauranga",
+    ticketLink: null,
+    entry: "Free",
     type: "Solo",
   },
 ]

@@ -37,19 +37,18 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden">
       <div className="absolute inset-0 hero-warm-tone overflow-hidden">
-        <div className="absolute -top-[calc(18%+8cm)] left-0 right-0 h-[calc(135%+8cm)]">
-          <Image
-            src="/images/hero-diving.jpg"
-            alt="Matty Buxton diving into the water"
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-        </div>
+        <Image
+          src="/images/hero-matty-guitar.png"
+          alt="Matty Buxton floating in the water"
+          fill
+          priority
+          className="object-cover object-[43%_center] scale-[1.08]"
+          sizes="100vw"
+          quality={95}
+        />
       </div>
 
-      {/* Vignette top + bottom only — keep the diver clear in the middle */}
+      {/* Vignette top + bottom — keep Matty clear in the middle */}
       <div className="absolute inset-0 bg-amber-950/10 mix-blend-soft-light pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 from-0% via-transparent via-14% to-transparent pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 from-0% via-black/20 via-16% to-transparent pointer-events-none" />
